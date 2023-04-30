@@ -87,11 +87,7 @@ public class DBApp {
         writer.println("Table Name,Column Name,Column Type,ClusteringKey,Min,Max"); // write the header (column titles)
         for (Map.Entry<String, String> entry : htblColNameType.entrySet()) { // write the data (column names)
             writer.println(strTableName + "," + entry.getKey() + "," + entry.getValue() + "," + (entry.getKey().equals(strClusteringKeyColumn) ? "True" : "False") + "," + htblColNameMin.get(entry.getKey()) + "," + htblColNameMax.get(entry.getKey()));
-        }
         writer.flush(); // flush the writer to empty the buffer
-        writer.close(); // close the writer to release the resources
-    }
-
     public void insertIntoTable(String strTableName,
                                 Hashtable<String, Object> htblColNameValue)
                                 throws DBAppException{
